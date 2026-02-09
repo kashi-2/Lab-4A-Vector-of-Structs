@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
-
+#include <cstdlib>
+#include <ctime>
+#include <iomanip> 
 using namespace std;
 
 // Struct Definition
@@ -13,22 +15,48 @@ struct Color
 
 int main()
 {
-    // Milestone 2
+    
     vector<Color> colors;
    
-    //below is the color object
-    Color testColor;
-    testColor.red = 100;
-    testColor.green = 150;
-    testColor.blue = 200;
+    srand(time(0));
+    
+    // random # n between 25 and 50
+    int n = rand() % 26 + 25;
 
-    colors.push_back(testColor);
+    //need to populate vector with n random color objects
+    for (int i = 0; i < n; i++)
+    {
+        Color temp;
+        
+        temp.red = rand() % 256;
+        temp.green = rand() % 256;
+        temp.blue = rand() % 256;
 
-    // Output vector stuff below change
-    cout << "Vector contains the following color:\n"; 
-    cout << "Red:   " << colors[0].red << endl;
-    cout << "Green: " << colors[0].green << endl;
-    cout << "Blue:  " << colors[0].blue << endl;
+         colors.push_back(temp);
+    }
+   
+    //table header 
+    cout << "\nGenerated " << n << " Colors\n\n";
+   
+
+   cout << left
+        << setw(10) << "Index"
+        << setw(10) << "Red"
+        << setw(10) << "Green"
+        << setw(10) << "Blue"
+        << endl;
+
+        cout << string(40, '-') << endl;
+    //outputing vector contents in a table format
+   for (int i = 0; i < colors.size(); i++)
+   {
+    cout << left 
+    << setw(10) << i
+    << setw(10) << colors[i].red
+    << setw(10) << colors[i].green
+    << setw(10) << colors[i].blue
+    << endl;
+   }
 
     return 0;
 }
