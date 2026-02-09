@@ -1,7 +1,9 @@
 #include <iostream>
+#include <vector>
 
-using namespace std; 
+using namespace std;
 
+// Struct Definition
 struct Color
 {
     int red;
@@ -11,16 +13,22 @@ struct Color
 
 int main()
 {
-    Color testColor; 
+    // Milestone 2
+    vector<Color> colors;
+   
+    //below is the color object
+    Color testColor;
+    testColor.red = 100;
+    testColor.green = 150;
+    testColor.blue = 200;
 
-    testColor.red = 255;
-    testColor.green = 128;
-    testColor.blue = 64;
+    colors.push_back(testColor);
 
-    cout << "Color Values:" << endl;
-    cout << "Red:   " << testColor.red << endl;
-    cout << "Green: " << testColor.green << endl;
-    cout << "Blue:  " << testColor.blue << endl;
+    // Output vector stuff below change
+    cout << "Vector contains the following color:\n"; 
+    cout << "Red:   " << colors[0].red << endl;
+    cout << "Green: " << colors[0].green << endl;
+    cout << "Blue:  " << colors[0].blue << endl;
 
     return 0;
 }
